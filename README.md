@@ -1,4 +1,4 @@
-Overview:
+# Overview:
 - Rust, a programming language, was developed by Braydon Hoare as a personal project while he was working as a SWE in 2006. After 3 years, his coworkers became interested 
 and the project was sponsored by his company and released publicly in 2010. 
 - The purpose of the project was to create a programming language as fast as the popular language C++ at the time while also avoiding memory-related bugs. At the time, memory 
@@ -6,21 +6,22 @@ management was one of the hardest skills to learn and was punishing in that a si
 through garbage collection but it created more runtime overhead (extra resources a system consumes which reduces speed) and had less direct control of memory. So the promise 
 of Rust was the speed and control of C++ with stronger memory safety guarantees by the compiler without more overhead.
 
-Usage: 
+# Usage: 
 - Rust is used where a single memory bug can cause the entire program to shut down. This includes web browsers, Operating Systems, cloud infrastructure, and embedded systems.
 
-Memory Management:
-- In a coding example, you create a variable called old_name that is assigned a string. You assign another variable new_name to be old_name. Rust now prevents use of old_name.
-- Rust doesn't need a garbage collector to provide memory safety for ordinary safe Rust code. It uses compile-time checks instead.
-- In rust, each value has an owner (a variable). When the ownership moves (new variable is assigned that value), the previous owner cannot access it anymore.
-Other parts of the program can temporarily borrow the value under specific rules. When the owner goes out of scope, the value's resources are cleaned up.
-
-C Manual Memory Management: 
+# C Manual Memory Management: 
 - Requires manual memory management where you have to explicitly allocate memory and deallocate it.
     - Memory related bugs: memory leak, use-after-free, double free, dangling pointer, etc.
 - References have to be deliberate
     - Memory related bugs: data race (accessing same memory at the same time), race conditions, reference outside boundaries, etc.
 
-Rust Ownership System: 
+# Rust Ownership System: 
+- Set of rules for who owns the memory, who can access it, and when it should be freed.
+    - Every value has an owner. There can only be one owner at a time. When the owner goes out of scope, its value is automatically dropped
+    - Enforces that there is only one mutable reference OR multiple immutable reference
+- Rust doesn't need a garbage collector to provide memory safety for ordinary safe Rust code. It uses compile-time checks instead.
+- In rust, each value has an owner (a variable). When the ownership moves (new variable is assigned that value), the previous owner cannot access it anymore. Should multiple functions need to access the same memory, Rust supports "borrowing" (accessing) the value without changing value. There is both immutable borrowing (reads) and mutable borrowing (write). 
+- Other parts of the program can temporarily borrow the value under specific rules. When the owner goes out of scope, the value's resources are cleaned up.
 
-Use-After-Free:
+# Use-After-Free:
+- In Rust, after releasing memory of a pointer using drop(), accessing it again is strictly prohibited by the compiler. 
