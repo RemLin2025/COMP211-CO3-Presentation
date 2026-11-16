@@ -1,0 +1,4 @@
+https://www.reddit.com/r/explainlikeimfive/comments/1xt1l44 eli5_what_is_the_programming_language_rust_and/
+- Includes personal views of the programming language and gist of how people (especially SWE) feel about Rust. 
+- Analogy: C is like a kitchen with a bunch of knifes laying around. Any mistake can cut you. Newer language like Python are like a kitchen with no knifes. Less experience with features to control specific things of the program. Rust is like a kitchen with knifes but with heavy emphasis on safety. Knife guards, placements, etc. It demands to know when the knife is used, where, and for what reason. 
+- "A lot of older devs oppose innovations like Rust on the grounds that skill, experience, and discipline are all that is needed to avoid memory bugs."
