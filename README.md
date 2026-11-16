@@ -7,7 +7,7 @@ through garbage collection but it created more runtime overhead (extra resources
 of Rust was the speed and control of C++ with stronger memory safety guarantees by the compiler without more overhead.
 
 # Usage: 
-- Rust is used where a single memory bug can cause the entire program to shut down. This includes web browsers, Operating Systems, cloud infrastructure, and embedded systems.
+- Rust is used where a single memory bug can cause the entire program to shut down. This includes web browsers, Operating Systems, cloud infrastructure, and embedded systems. These handle large amounts of memory and operations at very fast speeds so even one single memory bug can cause huge security issues since memory vulnerabilities can be exploited by attackers. 
 
 # C Manual Memory Management: 
 - Requires manual memory management where you have to explicitly allocate memory and deallocate it.
