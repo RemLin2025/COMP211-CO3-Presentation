@@ -24,4 +24,11 @@ of Rust was the speed and control of C++ with stronger memory safety guarantees 
 - Other parts of the program can temporarily borrow the value under specific rules. When the owner goes out of scope, the value's resources are cleaned up.
 
 # Use-After-Free:
-- In Rust, after releasing memory of a pointer using drop(), accessing it again is strictly prohibited by the compiler. 
+- In C, the memory bug causes undefined behavior: works normally, random value, segmentation fault (access to restricted data), and corrupt data or introduce security vulnerabilities.
+    - The memory is still there after being freed.
+- Ex: Program frees memory containing sensitive info. Stops pointing to data and lets it be reused. Another part of the program reuses that memory and read/modify the sensitive data. 
+- In Rust, after releasing memory of a pointer using drop(), accessing it again is strictly prohibited by the compiler.
+
+# TLDR:
+- Rust has the performance of C/C++ that tracks relationships in compile time to prevent memory bugs. Uses an ownership system. It's not popular because millions programs/products are written in C/C++ and largely have dependencies that rely on that code. 
+- Many companies use Rust for new developments : OpenAI, Discord, Figma, Dropbox, Cloudflare, AWS, Meta, Android, Linux Kernel, Windows Kernel, Mozilla Firefox, npm…
